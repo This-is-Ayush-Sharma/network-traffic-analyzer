@@ -8,6 +8,16 @@
     <title>Document</title>
 </head>
 <body>
+    <nav class="navbar bg-primary">
+        <div class="container-fluid">
+          <a class="navbar-brand text-white">Network Traffic Analyzer</a>
+            <div class="d-flex" role="search">
+            <!-- <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+            <button class="btn btn-outline-success" type="submit">Search</button> -->
+                <a href="/detect" class="text-white">Find Unusual activity in your network.</a>    
+            </div>
+        </div>
+      </nav>
     <div class="container mt-3">
         <%if(message){%>
             <div class="alert alert-danger" role="alert">
@@ -21,7 +31,7 @@
             </div>
             <button type="submit" class="btn btn-primary">Add Domain</button>
         </form>
-        <a href="/detect">Find Unusual activity in your network.</a>
+        
     </div>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.min.js" integrity="sha384-IDwe1+LCz02ROU9k972gdyvl+AESN10+x7tBKgc9I5HFtuNz0wWnPclzo6p9vxnk" crossorigin="anonymous"></script>

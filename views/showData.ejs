@@ -11,13 +11,23 @@
 </head>
 
 <body>
+    <nav class="navbar bg-primary">
+        <div class="container-fluid">
+            <a class="navbar-brand text-white">Network Traffic Analyzer</a>
+            <div class="d-flex" role="search">
+                <!-- <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+            <button class="btn btn-outline-success" type="submit">Search</button> -->
+                <a href="/" class="text-white">Ban Domain</a>
+            </div>
+        </div>
+    </nav>
     <div class="container mt-4">
         <%if(message){%>
             <div class="alert alert-danger" role="alert">
                 <%=message%>
             </div>
             <%}%>
-                <table class="table mt-3">
+                <table class="table table-info table-striped mt-3 mb-3">
                     <thead>
                         <tr>
                             <th scope="col">Time</th>
@@ -59,6 +69,7 @@
                             <% }); %>
                     </tbody>
                 </table>
+                <a href="/detect">Find Unusual activity in your network.</a>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
         integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3"
