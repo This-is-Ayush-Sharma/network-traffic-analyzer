@@ -27,6 +27,12 @@ exports.check = async(req,res)=>{
         //     message: "Sucess!",
         //     suspectedData
         // })
+        if(suspectedData.length === 0){
+            return res.render('showData',{
+                message: "No malicious activity detected!",
+                suspectedData
+            });
+        }
         return res.render('showData',{
             message: "Data Fetched Sucessfully!",
             suspectedData

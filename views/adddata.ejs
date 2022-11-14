@@ -7,28 +7,33 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
     <title>Document</title>
 </head>
-<body>
-    <nav class="navbar bg-primary">
+<body class="vh-100">
+    <nav class="navbar bg-primary fixed-top">
         <div class="container-fluid">
           <a class="navbar-brand text-white">Network Traffic Analyzer</a>
             <div class="d-flex " role="search">
             <!-- <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
             <button class="btn btn-outline-success" type="submit">Search</button> -->
-                <a href="/detect" class="text-white" style="margin-right: 10px;">Find Unusual activity in your network.</a>
-                <a href="/logout" class="text-white">Logout</a>        
+                <a href="/detect" class="text-white" style="margin-right: 10px; text-decoration: none;">Find Unusual activity in your network.</a>
+                <a href="/logout" class="text-white" style="margin-right: 10px; text-decoration: none;">Logout</a>        
             </div>
             
         </div>
       </nav>
-    <div class="container mt-3">
+      <!-- <div class="d-flex align-items-center justify-content-center h-100" style="height: 250px;">
+        <div class="p-2 m-2 bg-info text-white shadow rounded-2">Flex item</div>
+        <div class="p-2 m-2 bg-info text-white shadow rounded-2">Flex item</div>
+        <div class="p-2 m-2 bg-info text-white shadow rounded-2">Flex item</div>
+    </div> -->
+    <div class="container d-flex align-items-center justify-content-center flex-column h-100">
         <%if(message){%>
-            <div class="alert alert-danger" role="alert">
-                <%=message%>
+            <div class="alert alert-warning w-100" role="alert">
+                <h5><%=message%></h5>
             </div>
         <%}%>
-        <form class="mt-2 mb-4" action="/addban" method="post">
+        <form class="mt-2 mb-4 w-100" action="/addban" method="post">
             <div class="mb-3">
-              <label for="exampleInputEmail1" class="form-label">Add Website Domain</label>
+              <h1 for="exampleInputEmail1" class="form-label">Add Website Domain</h1>
               <input type="text" name="domain" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
             </div>
             <button type="submit" class="btn btn-primary">Add Domain</button>
