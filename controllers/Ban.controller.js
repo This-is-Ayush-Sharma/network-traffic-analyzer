@@ -9,11 +9,12 @@ exports.Showpage = (req,res)=>{
 }
 exports.AddData = async(req,res)=>{
     const { domain } = req.body;
-    // console.log(domain);
+    console.log(domain);
     try{
         var data; // Insert the domain you want to ping
         try{
             data = await domainPing(domain);
+            console.log(data);
         }
         catch(error)
         {

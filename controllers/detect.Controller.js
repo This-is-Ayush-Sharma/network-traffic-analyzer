@@ -4,9 +4,10 @@ const csvjson = require('csvjson');
 
 exports.check = async(req,res)=>{
     // const data = await BanData.find();
+    var tcpPacket = 0, udpPacket = 0, totalNumber = 0;
     try{
         const ban = await BanData.find();
-        var data = fs.readFileSync('D:\\network-traffic-analyzer\\controllers\\traffic data.csv', { encoding : 'utf8'});
+        var data = fs.readFileSync('D:\\university projects\\network-traffic-analyzer\\controllers\\traffic data.csv', { encoding : 'utf8'});
         var options = {
             delimiter : ',', // optional
             quote     : '"' // optional
@@ -18,10 +19,22 @@ exports.check = async(req,res)=>{
             BanIpList.push(dat.ip)
         })
         // console.log(BanIpList);
-        TrafficData.forEach((Element)=>{
+        TrafficData.forEach((Element)=>{    
             if(BanIpList.includes(Element.Destination)){
                 suspectedData.push(Element)
             }
+        })
+        suspectedData.forEach((data)=>{
+            // console.log(data);
+            if(data.Protocol == "TCP")
+            {
+                tcpPacket++;
+            }
+            if(data.Protocol == "UDP")
+            {
+                udpPacket++;
+            }
+            totalNumber++;
         })
         // res.status(200).json({
         //     message: "Sucess!",
@@ -35,7 +48,10 @@ exports.check = async(req,res)=>{
         }
         return res.render('showData',{
             message: "Data Fetched Sucessfully!",
-            suspectedData
+            suspectedData,
+            tcpPacket,
+            udpPacket,
+            totalNumber
         });
     }
     catch(error)
