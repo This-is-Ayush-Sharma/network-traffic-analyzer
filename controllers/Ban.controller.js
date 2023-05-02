@@ -8,12 +8,13 @@ exports.Showpage = (req,res)=>{
     });
 }
 exports.AddData = async(req,res)=>{
-    const { domain } = req.body;
-    console.log(domain);
+    const { domain, category } = req.body;
+    console.log(domain, category);
     try{
         var data; // Insert the domain you want to ping
         try{
             data = await domainPing(domain);
+            data.category = category;
             console.log(data);
         }
         catch(error)
@@ -51,5 +52,19 @@ exports.AddData = async(req,res)=>{
         return res.render('adddata',{
             message: "Server error!"
         });
+    }
+}
+
+exports.BannedData = async (req,res)=>{
+    try{
+        const data = await BanData.find();
+        // console.log(data);
+        return res.render("bannedWebsites",{
+            data
+        });
+    }
+    catch(error)
+    {
+        console.log("Some error occured");
     }
 }

@@ -4,7 +4,7 @@ const tokenGen = require('../utils/generateToken');
 
 exports.ShowLoginPage = (req, res) => {
     // console.log(req.headers.cookie);
-    res.render('Login', {
+    res.render('login', {
         message: "",
         username: ""
     });

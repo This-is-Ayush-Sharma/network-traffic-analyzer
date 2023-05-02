@@ -5,6 +5,10 @@ const Ban = mongoose.Schema({
         type:String,
         required:true
     },
+    category:{
+        type: String,
+        required: true
+    },
     ip: {
         type:String,
         required:true,

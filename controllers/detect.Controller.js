@@ -66,3 +66,9 @@ exports.check = async(req,res)=>{
         });
     }
 }
+
+exports.livePage = (req,res)=>{
+    return res.render('livedata',{
+        message:""
+    });
+}

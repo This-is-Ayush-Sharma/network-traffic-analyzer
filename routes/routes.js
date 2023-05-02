@@ -23,6 +23,11 @@ app.get('/add',isAuth.isAuthenticated,banController.Showpage);
 app.post('/addban',isAuth.isAuthenticated,banController.AddData);
 
 app.get('/detect',isAuth.isAuthenticated,DetectController.check);
+app.get('/live',isAuth.isAuthenticated,DetectController.livePage);
+app.get('/bannedpage', isAuth.isAuthenticated, banController.BannedData);
+
+// app.get('/live-detect', isAuth.isAuthenticated);
+
 
 app.get('/logout',LoginController.logout);
 
